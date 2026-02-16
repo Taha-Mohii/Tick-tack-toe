@@ -1,0 +1,144 @@
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+  min-height: 100vh;
+  background: linear-gradient(135deg, #1d2671, #c33764);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  transition: background 0.4s ease;
+}
+
+body.dark {
+  background: linear-gradient(135deg, #0f0f0f, #1c1c1c);
+}
+
+.toggle {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  width: 60px;
+  height: 30px;
+  background-color: #ccc;
+  border-radius: 20px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 6px;
+  z-index: 100;
+}
+
+.icon {
+  font-size: 0.9rem;
+  pointer-events: none;
+}
+
+.circle {
+  width: 26px;
+  height: 26px;
+  background-color: white;
+  border-radius: 50%;
+  position: absolute;
+  top: 2px;
+  left: 2px;
+  transition: transform 0.3s ease;
+}
+
+.toggle.active {
+  background-color: #560505;
+}
+
+.toggle.active .circle {
+  transform: translateX(30px);
+}
+
+.toggle.active .sun {
+  opacity: 0.3;
+}
+
+.toggle:not(.active) .moon {
+  opacity: 0.3;
+}
+
+.container {
+  display: flex;
+  justify-content: center;
+  margin: 2rem 0;
+}
+
+.game {
+  height: 60vmin;
+  width: 60vmin;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.2vmin;
+  padding: 1.5vmin;
+  background: rgba(255, 255, 255, 0.15);
+  border-radius: 1.5rem;
+  backdrop-filter: blur(10px);
+  box-shadow: 0 1.5rem 3rem rgba(0, 0, 0, 0.35);
+}
+
+.box {
+  border-radius: 1rem;
+  border: none;
+  font-size: 8vmin;
+  font-weight: bold;
+  cursor: pointer;
+  color: #c33764;
+  background: linear-gradient(145deg, #ffffff, #f1f1f1);
+  box-shadow: 0 0.8rem 1.5rem rgba(0, 0, 0, 0.25);
+  transition: transform 0.2s ease;
+}
+
+.box:hover {
+  transform: scale(1.05);
+}
+
+.box:disabled {
+  cursor: not-allowed;
+  opacity: 0.85;
+}
+
+#reset-btn,
+#new-btn {
+  padding: 0.9rem 2.2rem;
+  font-size: 1.1rem;
+  border-radius: 2rem;
+  border: none;
+  cursor: pointer;
+  color: white;
+  background: linear-gradient(135deg, #ff512f, #dd2476);
+  box-shadow: 0 0.8rem 1.5rem rgba(0, 0, 0, 0.35);
+  margin-top: 1.5rem;
+}
+
+.msg-container {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.65);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 2rem;
+  z-index: 10;
+}
+
+#msg {
+  font-size: 5vmin;
+}
+
+/* HIDE */
+.hide {
+  display: none;
+}
